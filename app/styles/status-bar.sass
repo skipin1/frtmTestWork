@@ -1,0 +1,50 @@
+@import "_variables.sass"
+
+$height: 5.5rem
+$coefficient: 2
+
+
+.status-bar
+  color: $white
+  height: $height
+  list-style-position: inside
+  margin: 0 $height/($coefficient * 1.5) 0 0
+  padding: 0
+  &__item
+    background-color: $orange
+    font-size: 24px
+    font-weight: bold
+    height: 100%
+    margin: 0
+    position: relative
+    line-height: $height
+    padding-left: 6.5rem
+
+    &:after
+      content: ''
+      position: absolute
+      top: 0
+      left: 100%
+      bottom: 0
+      z-index: 1
+
+      // Triangle
+      width: 0
+      height: 0
+      border-top: $height/$coefficient solid transparent
+      border-bottom: $height/$coefficient solid transparent
+      border-left: $height/($coefficient * 1.5) solid $orange
+
+    &.disabled
+      background-color: $gray
+      &:after
+        border-left-color: $gray
+    &:first-of-type
+      padding-left: 6.5rem
+      span
+        padding-left: 12px
+    &:last-of-type
+      padding-left: 210px
+
+    span
+      font-size: 17px
