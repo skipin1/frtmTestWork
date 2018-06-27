@@ -1,11 +1,37 @@
 'use strict';
 
 angular.module('testApp')
-    .controller('StartCtrl', function($rootScope) {
+    .controller('StartCtrl', function($scope, $rootScope, $localStorage, carsService, $log) {
         $rootScope.step = 1;
-        this.awesomeThings = [
-            'HTML5 Boilerplate',
-            'AngularJS',
-            'Karma'
-        ];
+
+        // Cars
+        if (!$localStorage.cars || $localStorage.cars.length === 0) {
+            carsService.getCars().then(function(data) {
+                $log.log('Recive data', data);
+                $scope.cars = data;
+            });
+        } else {
+            $scope.cars = $localStorage.cars;
+        }
+
+        // SelectedCars
+        if (!$localStorage.selectedCars || $localStorage.selectedCars.length === 0) {
+            $scope.selectedCars = [];
+        } else {
+            $scope.selectedCars = $localStorage.selectedCars;
+        }
+
+        $scope.selectCar = function(car) {
+            var index = $scope.selectedCars.indexOf(car);
+            if (index === -1) {
+                $scope.cars.splice($scope.cars.indexOf(car), 1);
+                $scope.selectedCars.push(car);
+            } else {
+                $scope.selectedCars.splice(index, 1);
+                $scope.cars.push(car);
+            }
+            $localStorage.cars = $scope.cars;
+            $localStorage.selectedCars = $scope.selectedCars;
+        };
+
     });

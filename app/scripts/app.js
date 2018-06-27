@@ -11,7 +11,8 @@
 angular
     .module('testApp', [
         'ngRoute',
-        'ngSanitize'
+        'ngSanitize',
+        'ngStorage'
     ])
     .config(function($routeProvider, $locationProvider) {
         $routeProvider

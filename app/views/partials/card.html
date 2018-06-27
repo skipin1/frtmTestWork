@@ -1,0 +1,8 @@
+<div class="card col-xs-12 col-sm-4">
+    <div class="card__title">List {{number}}</div>
+    <div class="card__description">Далеко-далеко за словесными горами в стране.</div>
+    <div class="card__reult">
+        <button ng-repeat="car in selectedcars | orderBy: 'title' track by car.id" ng-click="selectcar({car: car})" class="btn btn-sm btn-success" type="button">{{car.title}}</button>
+    </div>
+    <a href="step2" class="card__button btn btn-block" ng-class="styleClass">Go to step 2</a>
+</div>

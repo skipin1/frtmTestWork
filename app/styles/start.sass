@@ -1,0 +1,29 @@
+@import "_variables.sass"
+
+
+.rating
+  white-space: nowrap
+.star
+  position: relative
+  height: 3rem
+  width: 20%
+  float: left
+  font-size: 25px
+  &:before
+    content: '\2606'
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+  &.fill
+    &:before
+      content: '\2605'
+      color: $orange
+  // &:after
+  //   content: ""
+  //   width: 0
+  //   height: 0
+  //   display: block
+  //   clear: both
+  //   margin-top: 1rem

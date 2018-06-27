@@ -23,10 +23,10 @@
     <![endif]-->
 
     <div class="container">
-        <div class="row header">
+        <div class="row header" ng-cloak>
             <h1 class="header__title col-xs-12">Page title {{step}}</h1>
             <div class="header__status-bar col-xs-12">
-                <ol class="status-bar row ">
+                <ol class="status-bar row">
                     <li class="status-bar__item col-xs-6"><span>Step 1</span></li>
                     <li class="status-bar__item col-xs-6" ng-class="{'disabled': step!==2}"><span>Step 2</span></li>
                 </ol>
@@ -52,11 +52,17 @@
     <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
+    <!-- Directives -->
+    <script src="scripts/directives/card.js"></script>
+    <!-- Services -->
+    <script src="scripts/services/cars.js"></script>
+    <!-- Constrollers -->
     <script src="scripts/controllers/start.js"></script>
     <script src="scripts/controllers/finish.js"></script>
     <!-- endbuild -->

@@ -1,22 +1,32 @@
-<div class="jumbotron">
-    <h1>'Allo, 'Allo!</h1>
-    <p class="lead">
-        <img src="images/yeoman.png" alt="I'm Yeoman"><br> Always a pleasure scaffolding your apps.
-    </p>
-    <p><a class="btn btn-lg btn-success" href="/step2">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
-
-<div class="row marketing">
-    <h4>HTML5 Boilerplate</h4>
-    <p>
-        HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-    </p>
-
-    <h4>Angular</h4>
-    <p>
-        AngularJS is a toolset for building the framework most suited to your application development.
-    </p>
-
-    <h4>Karma</h4>
-    <p>Spectacular Test Runner for JavaScript.</p>
+<div class="page" ng-cloak>
+    <div class="page__title">1. Step 1</div>
+    <div class="page__list row">
+        <card number="1" selectedcars="selectedCars" selectcar="selectCar(car)" style-class="'orange'"></card>
+        <card number="2" selectedcars="selectedCars" selectcar="selectCar(car)" style-class="'skyblue'"></card>
+        <card number="3" selectedcars="selectedCars" selectcar="selectCar(car)" style-class="'green'"></card>
+    </div>
+    <div class="page__table table-responsive">
+        <table class="table table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th class="text-center">Title</th>
+                    <th class="text-center">Description</th>
+                    <th class="text-center">Price</th>
+                    <th>Popularity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="car in cars | orderBy: '-popularity' track by car.id">
+                    <td class="col-xs-2">{{car.title}}</td>
+                    <td class="col-xs-6">{{car.description}}</td>
+                    <td class="col-xs-2 text-center">{{car.price | currency}}</td>
+                    <td class="col-xs-2 rating">
+                        <span ng-repeat="rating in [1,2,3,4,5]" class="star" ng-class="{'fill': rating<=car.popularity}"></span>
+                        <div class="clearfix"></div>
+                        <button class="btn" ng-click="selectCar(car)">Select</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
