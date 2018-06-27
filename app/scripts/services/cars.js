@@ -9,21 +9,22 @@ angular.module('testApp')
                     return response.data;
                 })
                 .catch(function(err) {
-                    console.error('Error', err);
+                    throw new Error('Cant get cars from server! Response code is' + err.status + ', message ' + err.data);
                 });
         };
-        var setCars = function(data) {
+        var sendCars = function(data) {
             return $http.post('data.json', data)
                 .then(function(response) {
-                    $localStorage.cars = response && response.length ? response : [];
+                    if (response) {
+                        $localStorage.selectedCars = [];
+                    }
                 })
                 .catch(function(err) {
-                    console.error('Error', err);
+                    throw new Error('Cant send cars to server! Response code is' + err.status + ', message ' + err.data);
                 });
         };
         return {
             getCars: getCars,
-            setCars: setCars
+            sendCars: sendCars
         };
-
     });

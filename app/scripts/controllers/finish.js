@@ -1,11 +1,19 @@
 'use strict';
 
 angular.module('testApp')
-    .controller('FinishCtrl', function($rootScope) {
+    .controller('FinishCtrl', function($rootScope, $scope, $localStorage, $location, carsService, $window, $log) {
         $rootScope.step = 2;
-        this.awesomeThings = [
-            'HTML5 Boilerplate',
-            'AngularJS',
-            'Karma'
-        ];
+        if (!$localStorage.selectedCars && $localStorage.selectedCars.length === 0) {
+            $location.path('/');
+        }
+        $scope.selectedCars = $localStorage.selectedCars;
+        $scope.sendData = function() {
+            carsService.sendCars($scope.selectedCars)
+                .then(function(response) {
+                    $log.log('SendCars response', response);
+                })
+                .catch(function(err) {
+                    $window.alert(err);
+                });
+        };
     });

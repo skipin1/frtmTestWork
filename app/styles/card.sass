@@ -1,0 +1,41 @@
+@import "_variables.sass"
+
+$padding: 10%
+
+.card
+  &__wrapper
+    min-height: 14em
+    width: 100%
+
+    border-radius: 2px
+    border: 1px solid $gray
+    box-sizing: border-box
+    margin-bottom: 2rem
+    padding: 25px 30px
+
+  &__title
+    font-size: 1.25em
+    margin-bottom: 25px
+  &__description
+    font-size: 1.5rem
+    margin-bottom: 1rem
+  &__result
+    margin: 0 -8px 10px
+    button.item
+      background-color: $orangeBtnLight
+      border-color: $orangeBtnLight
+      border-radius: 1px
+      margin: 8px
+      padding: 3px 10px
+  &__button
+    color: #ffffff
+    padding: 10px 12px
+    &:hover
+      color: #ffffff
+    &.orange
+      background-color: $orangeBtn
+    &.green
+      background-color: $greenBtn
+    &.skyblue
+      background-color: $skyblueBtn
+

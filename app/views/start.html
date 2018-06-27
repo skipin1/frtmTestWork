@@ -1,29 +1,37 @@
 <div class="page" ng-cloak>
     <div class="page__title">1. Step 1</div>
     <div class="page__list row">
-        <card number="1" selectedcars="selectedCars" selectcar="selectCar(car)" style-class="'orange'"></card>
-        <card number="2" selectedcars="selectedCars" selectcar="selectCar(car)" style-class="'skyblue'"></card>
-        <card number="3" selectedcars="selectedCars" selectcar="selectCar(car)" style-class="'green'"></card>
+        <card number="1" selectedcars="selectedCars" selectcar="selectCar(car)" goto="goTo()" style-class="'orange'"></card>
+        <card number="2" selectedcars="selectedCars" selectcar="selectCar(car)" goto="goTo()" style-class="'skyblue'"></card>
+        <card number="3" selectedcars="selectedCars" selectcar="selectCar(car)" goto="goTo()" style-class="'green'"></card>
     </div>
-    <div class="page__table table-responsive">
-        <table class="table table-hover table-condensed">
+    <div class="page__table">
+        <table class="table table-hover">
             <thead>
                 <tr>
-                    <th class="text-center">Title</th>
+                    <th>Title</th>
                     <th class="text-center">Description</th>
                     <th class="text-center">Price</th>
                     <th>Popularity</th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="car in cars | orderBy: 'title' track by car.id">
-                    <td class="col-xs-2">{{car.title}}</td>
-                    <td class="col-xs-6">{{car.description}}</td>
-                    <td class="col-xs-2 text-center">{{car.price | currency}}</td>
-                    <td class="col-xs-2 rating">
-                        <span ng-repeat="rating in [1,2,3,4,5]" class="star" ng-class="{'fill': rating<=car.popularity}"></span>
-                        <div class="clearfix"></div>
-                        <button class="btn" ng-click="selectCar(car)">Select</button>
+                <tr ng-show="cars.length === 0">
+                    <td colspan="4" class="text-center">Car list is empty</td>
+                </tr>
+                <tr ng-repeat="car in cars | orderBy: 'title' track by car.id" ng-class-even="'even'">
+                    <td class="col-xs-2 col-md-2 col-lg-2 title">{{car.title}}</td>
+                    <td class="col-xs-4 col-md-5 col-lg-6 ">{{car.description}}</td>
+                    <td class="col-xs-2 col-md-2 col-lg- 2 text-center">{{car.price | currency}}</td>
+                    <td class="col-xs-4 col-md-3 col-lg-2 rating rating_with-padding">
+                        <div class="row">
+                            <div class="col-xs-7">
+                                <span ng-repeat="rating in [1,2,3,4,5]" class="star" ng-class="{'fill': rating<=car.popularity}"></span>
+                            </div>
+                            <div class="col-xs-5">
+                                <button class="btn select" ng-click="selectCar(car)">Select</button>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             </tbody>

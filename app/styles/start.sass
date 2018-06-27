@@ -1,14 +1,37 @@
 @import "_variables.sass"
 
+.page
+  &__title
+    font-size: 2.5rem
+    margin-bottom: 25px
+  &__list
+    margin-bottom: 2rem
+    @media (min-width: $screen-md-min)
+      margin-bottom: 8.75rem
+  &__table
+    overflow-x: auto
+    @media (min-width: $screen-md-min)
+      overflow-x: initial
 
 .rating
-  white-space: nowrap
+  &_with-padding
+    .row
+      margin-right: 0 !important
+  button.select
+    color: $greenBtn
+    border-color: $greenBtn
+    background-color: transparent
+    &:active
+      background-color: $greenBtn
+      color: #ffffff
+
 .star
-  position: relative
-  height: 3rem
-  width: 20%
   float: left
-  font-size: 25px
+  font-size: 2rem
+  height: 1em
+  min-width: .5em
+  position: relative
+  width: 20%
   &:before
     content: '\2606'
     position: absolute
@@ -20,10 +43,3 @@
     &:before
       content: '\2605'
       color: $orange
-  // &:after
-  //   content: ""
-  //   width: 0
-  //   height: 0
-  //   display: block
-  //   clear: both
-  //   margin-top: 1rem

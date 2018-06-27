@@ -3,7 +3,6 @@
 $height: 5.5rem
 $coefficient: 2
 
-
 .status-bar
   color: $white
   height: $height
@@ -18,7 +17,10 @@ $coefficient: 2
     margin: 0
     position: relative
     line-height: $height
-    padding-left: 6.5rem
+    text-align: center
+    @media (min-width: $screen-md-min)
+      text-align: initial
+      padding-left: 6.5rem
 
     &:after
       content: ''
@@ -40,11 +42,11 @@ $coefficient: 2
       &:after
         border-left-color: $gray
     &:first-of-type
-      padding-left: 6.5rem
       span
         padding-left: 12px
     &:last-of-type
-      padding-left: 210px
+      @media (min-width: $screen-md-min)
+        padding-left: 210px
 
     span
-      font-size: 17px
+      font-size: 1.5rem

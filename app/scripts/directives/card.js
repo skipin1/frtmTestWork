@@ -10,6 +10,7 @@ angular.module('testApp')
                 selectedcars: '=',
                 styleClass: '=',
                 selectcar: '&',
+                goto: '&'
             },
         };
     });

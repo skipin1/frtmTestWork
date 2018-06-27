@@ -17,14 +17,43 @@ html
 body
   font-size: 16px
   font-family: 'Noto Sans', 'Open Sans', sans-serif
+  color: #45525f
 
 html,
 body
   height: 100%
 
-.main
-  border-top: 1px solid $gray
+table
+  min-width: 600px
+  margin-bottom: 2rem
+  tr
+    margin: 0 5px
+    &.even
+      background-color: #f1f2f2
+  th,
+  td
+    padding: 5px 10px !important
+    vertical-align: middle !important
+    font-size: 14px !important
+  th
+    height: 6rem
+    border-bottom-width: 1px !important
+  td
+    &.title
+      color: $blueText
+      font-weight: bold
+
+button
+  &:focus
+    outline: 1px solid transparent !important
+
+.vcenter
+  display: inline-block
+  vertical-align: middle
+  float: none
 
 @import "header.sass"
 @import "status-bar.sass"
+@import "card.sass"
 @import "start.sass"
+@import "finish.sass"
