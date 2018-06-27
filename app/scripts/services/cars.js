@@ -9,7 +9,7 @@ angular.module('testApp')
                     return response.data;
                 })
                 .catch(function(err) {
-                    throw new Error('Cant get cars from server! Response code is' + err.status + ', message ' + err.data);
+                    throw new Error('Cant get cars from server! Response code is ' + err.status + ', message ' + err.data);
                 });
         };
         var sendCars = function(data) {
@@ -20,7 +20,7 @@ angular.module('testApp')
                     }
                 })
                 .catch(function(err) {
-                    throw new Error('Cant send cars to server! Response code is' + err.status + ', message ' + err.data);
+                    throw new Error('Cant send cars to server! Response code is ' + err.status + ', message ' + err.data);
                 });
         };
         return {
