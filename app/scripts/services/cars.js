@@ -16,8 +16,8 @@ angular.module('testApp')
             return $http.post('data.json', data)
                 .then(function(response) {
                     if (response) {
+                        $localStorage.cars = $localStorage.cars.concat($localStorage.selectedCars);
                         $localStorage.selectedCars = [];
-                        $localStorage.cars = [];
                     }
                 })
                 .catch(function(err) {
