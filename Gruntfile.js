@@ -413,6 +413,7 @@ module.exports = function(grunt) {
                     dest: '<%= yeoman.dist %>',
                     src: [
                         '*.{ico,png,txt}',
+                        '.htaccess',
                         '*.html',
                         '*.json',
                         'images/{,*/}*.{webp}',
