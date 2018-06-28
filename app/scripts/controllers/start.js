@@ -1,13 +1,12 @@
 'use strict';
 
 angular.module('testApp')
-    .controller('StartCtrl', function($scope, $rootScope, $localStorage, $location, carsService, $log) {
+    .controller('StartCtrl', function($scope, $rootScope, $localStorage, $location, carsService) {
         $rootScope.step = 1;
 
         // Cars
         if (!$localStorage.cars || $localStorage.cars.length === 0 && !$localStorage.selectedCars) {
             carsService.getCars().then(function(data) {
-                $log.log('Recive data', data);
                 $scope.cars = data;
             });
         } else {
@@ -37,7 +36,5 @@ angular.module('testApp')
         $scope.goTo = function() {
             $localStorage.selectedCars = $scope.selectedCars;
             $location.path('step2');
-            $log.log('goTo function work');
         };
-
     });

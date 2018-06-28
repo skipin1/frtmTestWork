@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('testApp')
-    .controller('FinishCtrl', function($rootScope, $scope, $localStorage, $location, carsService, $window, $log) {
+    .controller('FinishCtrl', function($rootScope, $scope, $localStorage, $location, carsService, $window) {
         $rootScope.step = 2;
         if (!$localStorage.selectedCars && $localStorage.selectedCars.length === 0) {
             $location.path('/');
@@ -10,7 +10,7 @@ angular.module('testApp')
         $scope.sendData = function() {
             carsService.sendCars($scope.selectedCars)
                 .then(function(response) {
-                    $log.log('SendCars response', response);
+                    $window.aler('Send success');
                 })
                 .catch(function(err) {
                     $window.alert(err);

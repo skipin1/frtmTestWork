@@ -17,6 +17,7 @@ angular.module('testApp')
                 .then(function(response) {
                     if (response) {
                         $localStorage.selectedCars = [];
+                        $localStorage.сars = [];
                     }
                 })
                 .catch(function(err) {
