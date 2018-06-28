@@ -10,7 +10,7 @@ angular.module('testApp')
         $scope.sendData = function() {
             carsService.sendCars($scope.selectedCars)
                 .then(function(response) {
-                    $window.aler('Send success');
+                    $window.alert('Send success');
                 })
                 .catch(function(err) {
                     $window.alert(err);
