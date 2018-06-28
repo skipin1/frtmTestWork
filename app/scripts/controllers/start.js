@@ -5,7 +5,7 @@ angular.module('testApp')
         $rootScope.step = 1;
 
         // Cars
-        if (!$localStorage.cars || $localStorage.cars.length === 0 && !$localStorage.selectedCars) {
+        if (!$localStorage.cars || $localStorage.cars.length === 0) {
             carsService.getCars().then(function(data) {
                 $scope.cars = data;
             });
